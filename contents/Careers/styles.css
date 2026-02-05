@@ -141,26 +141,42 @@ body {
 }
 
 
+/* 1. Move the menu closer so there is no physical gap */
 .dropdown-menu {
   left: 50%;
-  top: calc(100% + 10px);
-  transform: translate(-50%, -10px);
+  top: 100%; /* Changed from calc(100% + 10px) to 100% */
+  transform: translate(-50%, 0); 
+  
+  /* Keep your existing styling below */
+  display: none; 
   opacity: 0;
   pointer-events: none;
-
-  display: block;
   min-width: 220px;
   padding: 12px;
-
   border-radius: 14px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
 
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-  transition: opacity 0.25s ease, transform 0.25s ease;
+/* 2. The "Bridge": This invisible area catches the mouse 
+      if it wanders slightly off the link */
+.navbar .dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -15px; /* Creates an invisible 15px extension above the menu */
+  left: 0;
+  right: 0;
+  height: 15px;
+  background: transparent;
+}
+
+/* 3. Improved Hover Trigger */
+.navbar .dropdown:hover > .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translate(-50%, 5px); /* Smoothly slide down 5px visually */
+  pointer-events: auto;
 }
 
 .dropdown-item {

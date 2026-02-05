@@ -160,4 +160,16 @@ document.addEventListener("DOMContentLoaded", () => {
     if (activeLink) moveBox(activeLink);
     else navBox.style.opacity = "0";
   });
+
+  // Add this inside your DOMContentLoaded listener
+const dropdowns = document.querySelectorAll('.nav-item.dropdown');
+
+dropdowns.forEach(dropdown => {
+  // When entering the dropdown area (link or menu)
+  dropdown.addEventListener("mouseenter", () => {
+    const link = dropdown.querySelector('.nav-link');
+    moveBox(link);
+  });
 });
+});
+
