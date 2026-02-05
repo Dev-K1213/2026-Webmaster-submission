@@ -20,7 +20,7 @@ window.addEventListener("load", () => {
   const scrollLimit = cardWidth * originalCards.length;
 
   let position = 0;
-  const speed = 1.67; // Lower number = smoother/slower
+  const speed = 1.1; // Lower number = smoother/slower
   let paused = false;
 
   function animate() {
