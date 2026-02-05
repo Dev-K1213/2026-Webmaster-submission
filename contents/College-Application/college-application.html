@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Search Colleges | Aletheia</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <a class="logo" href="../../index.html">
+        <img src="../../Photos/graduate-cap-black.png" alt="Logo" />
+        <span class="logo-text">Aletheia</span>
+      </a>
+
+      <div class="menu-pill">
+        <div class="nav-box" id="nav-box"></div>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../../index.html">Home</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle active"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                >College</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../College-Application/college-application.html"
+                    >College Applications</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../Scholarships/scholarships.html"
+                    >Scholarships</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                >High School</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../Standardized-testing/standardized-testing.html"
+                    >Standardized Testing</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../Activities/Activities.html"
+                    >Activities</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../Internships/internships.html"
+                    >Internships</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="../Careers/careers.html">Careers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../Contact/contacts.html">Contribute</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../References/index.html"
+                >Reference Page</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero-section">
+      <div class="mural-art"></div>
+      <div class="container">
+        <h1 class="main-title">Search Colleges</h1>
+        <p class="subtitle">
+          Find institutions aligned with your financial and career goals.
+        </p>
+
+        <div class="search-pill">
+          <i class="fas fa-search search-icon"></i>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search 'Carnegie Mellon' or 'MIT'..."
+          />
+          <button id="clearSearch" class="clear-btn">Clear</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="app-container">
+      <aside class="sidebar">
+        <h3>Strategy Filters</h3>
+        <div class="filter-group">
+          <div class="filter-item">
+            <input
+              type="checkbox"
+              id="zero-debt"
+              value="zero-debt"
+              class="filter"
+            />
+            <label for="zero-debt">Full Aid (No Loans)</label>
+          </div>
+          <div class="filter-item">
+            <input type="checkbox" id="roi" value="roi" class="filter" />
+            <label for="roi">High ROI</label>
+          </div>
+          <div class="filter-item">
+            <input
+              type="checkbox"
+              id="research"
+              value="research"
+              class="filter"
+            />
+            <label for="research">Research Heavy</label>
+          </div>
+          <div class="filter-item">
+            <input
+              type="checkbox"
+              id="high-earning"
+              value="high-earning"
+              class="filter"
+            />
+            <label for="high-earning">High-Earning</label>
+          </div>
+        </div>
+      </aside>
+
+      <main id="results-display" class="results-grid"></main>
+    </div>
+
+    <div id="college-modal" class="college-modal">
+      <div class="college-modal-content">
+        <span class="college-modal-close">&times;</span>
+        <h2 id="modal-title" style="font-family: var(--font-heading)"></h2>
+        <div class="modal-body-content">
+          <p id="modal-summary"></p>
+          <hr />
+          <p>
+            <i class="fas fa-map-marker-alt"></i> <strong>Location:</strong>
+            <span id="modal-location"></span>
+          </p>
+          <p>
+            <i class="far fa-calendar-alt"></i> <strong>Deadline:</strong>
+            <span id="modal-deadline"></span>
+          </p>
+          <a id="modal-website" href="#" target="_blank" class="action-btn"
+            >Visit Official Website</a
+          >
+        </div>
+      </div>
+    </div>
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand-wrapper">
+            <img
+              src="../../Photos/graduate-cap-black.png"
+              alt="Logo Icon"
+              class="footer-logo"
+            />
+            <div class="footer-brand">Aletheia</div>
+          </div>
+
+          <div class="footer-nav">
+            <a href="../../index.html">Home</a>
+            <a href="../Careers/careers.html">Careers</a>
+            <a href="../Contact/contacts.html">Contribute</a>
+            <a href="../References/index.html"> References</a>
+          </div>
+        </div>
+
+        <hr class="footer-line" />
+
+        <div class="footer-bottom">
+          <div class="copyright">©2026 Aletheia — All Rights Reserved.</div>
+          <div class="footer-legal">
+            <a href="../Terms-conditions/terms_conditions.html"
+              >Terms and Conditions</a
+            >
+            <span style="margin-left: 10px; opacity: 0.3">|</span>
+            <a href="../Privacy-Policy/privacy-policy.html"
+              >Privacy Policy</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

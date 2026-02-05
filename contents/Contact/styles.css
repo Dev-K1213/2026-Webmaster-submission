@@ -1,0 +1,520 @@
+/* Base Styles */
+:root {
+    --russet: #803939;
+    --russet-hover: #6a2e2e;
+    --text-dark: #0b0b0b;
+    --bg-cream: #eaeaea;
+    --font-heading: "Playfair Display", serif;
+    --font-body: "Inter", sans-serif;
+}
+
+body {
+    margin: 0;
+    padding-top: 120px; /* Space for fixed navbar */
+    background-color: var(--bg-cream);
+    font-family: var(--font-body);
+    color: var(--text-dark);
+}
+
+/* =========================================================
+   2. NAVIGATION (ALETHEIA PILL STYLE)
+   ========================================================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 50px;
+    background: transparent !important;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    text-decoration: none;
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 44px;
+    padding: 6px 14px;
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.logo img { height: 100%; width: auto; margin-right: 10px; }
+.logo-text { font-weight: 700; color: var(--text-dark); font-family: var(--font-body); }
+
+.menu-pill {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: max-content;
+    margin: 0 auto;
+    padding: 6px 10px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.nav-box {
+    position: absolute;
+    background: var(--russet);
+    border-radius: 12px;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.navbar .nav-link {
+    position: relative;
+    z-index: 2;
+    padding: 10px 24px !important;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-dark) !important;
+    font-family: var(--font-body);
+}
+
+.navbar .nav-link:hover, 
+.navbar .nav-link.active { 
+    color: #fff !important; 
+}
+
+/* Dropdown Alignment */
+.dropdown-menu {
+    left: 50% !important;
+    transform: translateX(-50%) translateY(10px);
+    border: none;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.dropdown-item {
+    border-radius: 10px;
+    font-size: 0.85rem;
+    padding: 8px 16px;
+}
+
+.dropdown-item:hover {
+    background: var(--russet);
+    color: white;
+}
+
+.dropdown-toggle::after { display: none !important; }
+
+/* =========================================================
+   3. HERO & SEARCH
+   ========================================================= */
+.hero-section {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.main-title {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.bracket { color: var(--russet); margin-right: 10px; }
+
+.search-pill {
+    background: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+    margin: 30px auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.search-pill input {
+    border: none;
+    outline: none;
+    width: 100%;
+    margin: 0 15px;
+}
+
+#clearFilters {
+    background: none;
+    border: none;
+    color: var(--russet);
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+/* * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+} */
+
+/* body {
+    background: linear-gradient(to bottom, #f4f4f9, #eaeaea);
+    color: #333;
+    line-height: 1.6;
+} */
+
+/* Header */
+h1 {
+    text-align: center;
+    color: #803939;
+    margin-top: 40px;
+    font-size: 2.5rem;
+}
+
+/* Subheading */
+h2 {
+    text-align: center;
+    color: #803939;
+    margin-bottom: 30px;
+}
+
+/* Form Container */
+form {
+    background-color: white;
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Form groups */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #803939;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="file"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #803939;
+    outline: none;
+    box-shadow: 0 0 5px rgba(128, 57, 57, 0.5);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Submit Button */
+button {
+    background-color: #803939;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #a14c4c;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 15px 0;
+    color: white;
+    background-color: #803939;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media(max-width:600px){
+    form {
+        padding: 20px;
+        margin: 20px;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* =========================================================
+   8. FOOTER
+   ========================================================= */
+
+.site-footer {
+  padding: 60px 0 30px;
+  background: var(--bg-cream);
+  color: #000000; /* Sets base color to black */
+}
+
+.footer-brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo {
+  height: 36px;
+  width: auto;
+}
+
+.footer-brand {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000000; /* Already black */
+}
+
+.footer-line {
+  margin: 20px 0;
+  border: none;
+  border-top: 1.5px solid #000000; /* Changed from var to black */
+  opacity: 1; /* Removed transparency */
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #000000;
+  opacity: 1; /* Changed from 0.7 to 1 for true black */
+}
+
+.footer-legal a {
+  margin-left: 15px;
+  color: #000000; /* Explicitly black */
+  text-decoration: none;
+}
+
+.footer-legal a:hover {
+  text-decoration: underline;
+}
+
+/* ==============================
+    FOOTER TOP (BRAND + NAV)
+   ============================== */
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 26px;
+}
+
+.footer-nav a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #000000; /* Changed from var to black */
+  text-decoration: none;
+  opacity: 1; /* Changed from 0.65 to 1 for true black */
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.footer-nav a:hover {
+  opacity: 1;
+  color: #6a2e2e; /* Keeps your russet hover effect */
+  transform: translateY(-2px);
+}
+
+.info-box {
+    background: white;
+    border-radius: 20px;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    margin: 0 auto; /* Added for centering */
+    max-width: 350px; /* Optional: keeps boxes from getting too wide on large screens */
+}
+
+/* Fix the Pill container to allow the red box to show */
+.menu-pill {
+    position: relative;
+    overflow: visible !important; /* Crucial: allows dropdowns and the box to be visible */
+    z-index: 10;
+}
+
+/* Ensure the nav-box is ready to be moved by JS */
+.nav-box {
+    position: absolute;
+    background: var(--russet) !important;
+    border-radius: 12px;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 1;
+    pointer-events: none; /* Allows clicking links through the red box */
+}
+
+/* Ensure the text is readable when the red box is behind it */
+.navbar .nav-link {
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover, 
+.navbar .nav-link.active {
+    color: #ffffff !important;
+}
+
+/* Dropdown fix for centered menu */
+.dropdown-menu {
+    margin-top: 10px !important;
+    z-index: 2000;
+}
+/* Show dropdown on hover */
+@media (min-width: 992px) {
+    .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0; /* Align it nicely with the pill */
+        opacity: 1;
+        visibility: visible;
+        animation: slideUp 0.3s ease-out;
+    }
+}
+
+/* Optional: Smooth fade-in animation for the menu */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Ensure the dropdown-menu is positioned correctly */
+.dropdown-menu {
+    border: none;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    /* Adjust z-index to stay above the hero/form */
+    z-index: 2000 !important; 
+}
+
+/* Removes the arrow icon from dropdown links */
+.dropdown-toggle::after {
+    display: none !important;
+}
+
+/* Style for items inside the dropdown */
+.dropdown-item {
+    border-radius: 8px; /* Matches your rounded theme */
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    color: var(--text-dark);
+}
+
+/* Red highlight on hover for dropdown items */
+.dropdown-item:hover {
+    background-color: var(--russet) !important;
+    color: #ffffff !important;
+}
+
+/* 1. Ensure the parent nav-item is the reference point */
+.navbar-nav .nav-item {
+    position: relative;
+}
+
+/* 2. Style and Center the Dropdown Menu */
+.dropdown-menu {
+    display: block; /* We use opacity/visibility for the hover effect */
+    visibility: hidden;
+    opacity: 0;
+    
+    /* Centering logic */
+    position: absolute;
+    left: 50% !important;
+    top: 100% !important;
+    transform: translateX(-50%) translateY(10px);
+    
+    /* Visual Styles */
+    min-width: 200px;
+    border: none;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    padding: 10px;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 2000;
+}
+
+/* 3. Show Dropdown on Hover (Desktop) */
+@media (min-width: 992px) {
+    .nav-item.dropdown:hover .dropdown-menu {
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(-50%) translateY(0); /* Slides up into place */
+    }
+}
+
+/* 4. Dropdown Item Styling */
+.dropdown-item {
+    text-align: center; /* Centers the text inside the items */
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    transition: all 0.2s ease;
+}
+
+/* 5. Item Hover State */
+.dropdown-item:hover {
+    background-color: var(--russet) !important;
+    color: #ffffff !important;
+}
+
+/* 6. Fix for Bootstrap's default behavior */
+.dropdown-toggle::after {
+    display: none !important;
+}

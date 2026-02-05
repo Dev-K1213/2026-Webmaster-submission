@@ -1,0 +1,915 @@
+/* =========================================================
+   1. GLOBAL FONTS & THEME VARIABLES
+   ========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700;900&display=swap");
+
+@font-face {
+  font-family: "Hoefler Roman";
+  src: url("fonts/HoeflerTextRoman.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg-cream: #eaeaea;
+  --russet: #803939;
+  --russet-hover: #6a2e2e;
+  --text-dark: #0b0b0b;
+  --text-muted: rgba(11, 11, 11, 0.7);
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-cream);
+  color: var(--text-dark);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+/*
+=======
+LOGO
+=======
+*/
+/* Logo glass container */
+.logo {
+  text-decoration: none;
+  position: absolute;
+  left: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  height: 44px;
+  padding: 6px 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-top-color: rgba(255, 255, 255, 0.7);
+
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.08),
+    0 10px 20px -5px rgba(0, 0, 0, 0.15),
+    inset 0 0 10px rgba(255, 255, 255, 0.12);
+
+  z-index: 1100;
+}
+
+/* Logo image sizing */
+.logo img {
+  height: 100%;
+  width: auto;
+  display: block;
+}
+.logo img {
+  transition: opacity 0.25s ease;
+}
+
+/* optional: text color transition too */
+.logo-text {
+  margin-left: 8px;
+  font-weight: 600;
+  transition: color 0.25s ease;
+}
+
+/* =========================================================
+   2. NAVIGATION (GLASS PILL + HOVER SLIDER)
+   ========================================================= */
+
+.navbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 1000;
+  padding: 30px 50px;
+  background: transparent !important;
+}
+
+.menu-pill {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: max-content;
+  margin: 0 auto;
+  padding: 6px 10px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-top-color: rgba(255, 255, 255, 0.7);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 10px 20px -5px rgba(0, 0, 0, 0.1),
+    inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.nav-box {
+  position: absolute;
+  left: 0;
+  height: calc(100% - 12px);
+  background: var(--russet);
+  border-radius: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 1;
+}
+
+.navbar .nav-link {
+  position: relative;
+  z-index: 2;
+  padding: 10px 24px !important;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-dark) !important;
+  border-radius: 12px;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-link.active-link {
+  color: #fff !important;
+}
+
+.dropdown-toggle::after {
+  display: none !important;
+}
+
+/* =========================================================
+   2a. DROPDOWN — HOVER + CENTERED
+   ========================================================= */
+
+.navbar .dropdown:hover > .dropdown-menu,
+.navbar .dropdown .dropdown-menu:hover {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dropdown-menu {
+  left: 50%;
+  top: calc(100% + 10px);
+  transform: translate(-50%, -10px);
+  opacity: 0;
+  pointer-events: none;
+
+  display: block;
+  min-width: 220px;
+  padding: 12px;
+
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.dropdown-item {
+  text-align: center;
+  font-size: 0.85rem;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 500;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background: var(--russet);
+  color: #fff;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+}
+
+/* =========================================================
+   3. HERO SECTION + BACKGROUND ROTATION
+   ========================================================= */
+
+.hero-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.background-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.black-tint {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.5);
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-section h1 {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================================
+   4. SEARCH BAR (GLASS STYLE)
+   ========================================================= */
+
+.search-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.search-wrapper {
+  padding: 8px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-top-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  transition: 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.search-wrapper:focus-within {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-4px);
+}
+
+.search-inner {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 18px;
+}
+
+.main-search {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1.15rem;
+  color: #fff;
+}
+
+.main-search::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* =========================================================
+   5. SEARCH PILLS
+   ========================================================= */
+
+.search-pills {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.search-pill {
+  padding: 6px 18px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  background: rgba(128, 57, 57, 0.1);
+  border: 1px solid rgba(128, 57, 57, 0.2);
+  color: var(--text-dark) !important;
+  transition: 0.3s ease;
+}
+
+.search-pill:hover {
+  background: var(--russet);
+  color: #fff !important;
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   6. TIMELINE SECTION
+   ========================================================= */
+/* =========================================================
+   6. TIMELINE SECTION (ACADEMIC LOOK)
+   ========================================================= */
+
+/* Update this to remove the !important top so the JS can move it */
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  /* REMOVED top: 50% !important */
+  width: 16px;
+  height: 16px;
+  background: var(--russet);
+  border: 4px solid var(--bg-cream);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  box-shadow: 0 0 15px rgba(128, 57, 57, 0.4);
+  transition: top 0.1s ease-out; /* Makes it follow smoothly */
+}
+
+/* Ensure the track spans the full height of the container */
+.timeline-track {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: rgba(128, 57, 57, 0.2);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Adjust split-mode width to ensure it doesn't break the layout */
+.timeline-item.split-mode {
+  width: 100%; /* Override the 45% you had earlier */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  margin-bottom: 150px; /* More space between grades */
+  opacity: 0.2; /* Back to inactive state for JS to trigger */
+  transition: opacity 0.5s ease;
+}
+
+.timeline-item.split-mode.active {
+  opacity: 1;
+}
+/* Align text to the "inside" (toward the line) for a cleaner look */
+.timeline-item.split-mode:not(.swapped) .description-text {
+  text-align: left;
+  border-left: 4px solid var(--russet); /* Optional: Adds a small accent bar next to the line */
+}
+
+.timeline-item.split-mode.swapped .description-text {
+  text-align: right;
+  border-right: 4px solid var(--russet); /* Optional: Adds a small accent bar next to the line */
+}
+
+/* Ensure the card-media-box doesn't get too bulky */
+.card-media-box {
+  position: relative; /* This keeps the badge inside the box */
+  background: white;
+  padding: 15px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.badge-year {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--russet);
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  z-index: 5;
+  pointer-events: none; /* This stops the "glitching" on hover */
+}
+.card-media-box:hover {
+  transform: translateY(-5px);
+}
+/* Container for the whole row */
+.timeline-item.split-mode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 80px; /* Space for the center line/dot */
+  margin-bottom: 100px;
+  position: relative;
+}
+
+/* Common sizing for both sides */
+.timeline-left-content,
+.timeline-right-content {
+  flex: 1;
+  max-width: 450px;
+}
+
+.timeline-left-content {
+  text-align: right;
+}
+.timeline-right-content {
+  text-align: left;
+}
+
+/* The "Card" for the Image Side */
+
+.card-media-box img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.card-media-box h3 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+/* Styling the Description Text */
+.description-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-dark);
+  font-weight: 400;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+}
+
+/* Ensure the Dot stays centered in the row 
+
+/* Swapping sides logic */
+.swapped {
+  flex-direction: row; /* Standard row, but HTML is swapped */
+}
+
+/* Mobile: Stack them */
+@media (max-width: 768px) {
+  .timeline-item.split-mode {
+    flex-direction: column !important;
+    gap: 30px;
+  }
+  .timeline-track,
+  .timeline-dot {
+    display: none;
+  }
+}
+.timeline-section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 120px 20px;
+}
+
+.timeline-title {
+  font-family: var(--font-heading);
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: 100px;
+  color: var(--russet);
+  letter-spacing: 1px;
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+  width: 100%;
+}
+
+/* TRACK & DOT (Mechanics untouched) */
+
+/* ITEM ALIGNMENT */
+.timeline-item {
+  width: 45%;
+  opacity: 0.3; /* Subtle inactive state */
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.timeline-item.active {
+  opacity: 1;
+}
+
+.timeline-item.right {
+  align-self: flex-end;
+}
+.timeline-item.left {
+  align-self: flex-start;
+}
+
+/* ACADEMIC CARD LOOK */
+.academic-card {
+  background: rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  border-radius: 24px !important;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
+  padding: 0 !important; /* Reset padding for img-box */
+}
+
+.card-img-box {
+  position: relative;
+  height: 200px;
+  width: 100%;
+}
+
+.card-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.badge-year {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--russet);
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.card-content {
+  padding: 25px;
+}
+
+.card-content h3 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.btn-tip {
+  margin-top: 15px;
+  background: var(--russet);
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.btn-tip:hover {
+  background: var(--russet-hover);
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+  .timeline-track,
+  .timeline-dot {
+    left: 20px;
+  }
+  .timeline-item {
+    width: 100%;
+    padding-left: 45px;
+  }
+  .timeline-item.left {
+    align-self: flex-end;
+  }
+}
+/* ==============================
+   SCROLL DOT TIMELINE (FINAL)
+   ============================== */
+
+.timeline-item {
+  opacity: 0.25;
+  transform: scale(0.96);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+.timeline-item.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.timeline-item.active .card {
+  box-shadow:
+    0 0 0 4px rgba(128, 57, 57, 0.12),
+    0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* =========================================================
+   7. REVIEWS / TESTIMONIALS
+   ========================================================= */
+
+.reviews-section {
+  padding: 80px 0;
+  background: var(--bg-cream);
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.review-section-title {
+  font-family: var(--font-heading);
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+/* Update these specific rules in your styles.css */
+
+/* Update these specific rules in your styles.css */
+
+.carousel-track {
+  display: flex;
+  gap: 30px; /* Ensure this matches the '+ 30' in the JS above */
+  width: max-content;
+  will-change: transform;
+}
+
+.review-card {
+  flex: 0 0 320px; /* Keeps cards a consistent width */
+  /* Remove any transitions on the 'transform' property here 
+     if they interfere with the JS animation */
+}
+
+/* Pause on hover */
+.carousel:hover .carousel-track {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-infinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Translate by exactly -50% because we cloned the set once */
+    transform: translateX(calc(-50% - 15px)); 
+  }
+}
+/* Pause on hover is already good, but let's ensure it's smooth */
+
+
+.review-card {
+  flex: 0 0 320px;
+  padding: 40px 30px 30px;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid rgba(128, 57, 57, 0.05);
+  box-shadow: 0 10px 25px rgba(128, 57, 57, 0.08);
+  position: relative;
+  transition: transform 0.4s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-15px);
+}
+
+.quote-mark {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-family: var(--font-heading);
+  font-size: 80px;
+  color: var(--russet);
+  opacity: 0.2;
+}
+
+.reviewer-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--russet);
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+.carousel {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* =========================================================
+   8. FOOTER
+   ========================================================= */
+
+.site-footer {
+  padding: 60px 0 30px;
+  background: var(--bg-cream);
+}
+
+.footer-brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* spacing between logo and text */
+}
+
+.footer-logo {
+  height: 36px; /* adjust size to match text */
+  width: auto;
+}
+
+.footer-brand {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000000;
+}
+
+.footer-line {
+  margin: 20px 0;
+  border: none;
+  border-top: 1.5px solid var(--text-dark);
+  opacity: 0.6;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.footer-legal a {
+  margin-left: 15px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-legal a:hover {
+  text-decoration: underline;
+}
+
+/* ==============================
+   FOOTER TOP (BRAND + NAV)
+   ============================== */
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 26px;
+}
+
+.footer-nav a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  text-decoration: none;
+  opacity: 0.65;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.footer-nav a:hover {
+  opacity: 1;
+  color: #6a2e2e;
+  transform: translateY(-2px);
+}
+
+/* ==============================
+   MOTO
+   ============================== */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px 0 40px 0;
+  background-color: #000;
+}
+
+.hero-center-group {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  width: 100%;
+}
+
+.hero-bottom-group {
+  width: 100%;
+  z-index: 2;
+  padding: 0 20px;
+}
+
+.stretched-content {
+  width: 100%;
+  text-align: center;
+}
+
+.hero-subtext-stretched {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  max-width: 100vw;
+  margin: 10px 0 20px 0;
+  padding: 0 10px;
+}
+
+.display-3 {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+}
+
+.hero-motto-minimal {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+.btn-russet-theme {
+  background-color: var(--russet) !important;
+  border: none !important;
+  color: #fff !important;
+  padding: 12px 32px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.btn-russet-theme:hover {
+  background-color: var(--russet-hover) !important;
+  transform: translateY(-2px);
+}
+
+.separator-container img {
+  /* 1. STRETCH: Make it wider than its natural size */
+  width: 100%; 
+  max-width: 1000px; /* Increase this to make it stretch further across the screen */
+  
+  /* 2. THIN OUT: Force a specific height to flatten the image */
+  height: 20px;     /* Decrease this (e.g., 15px) to make it look even thinner */
+  
+  /* 3. REFINEMENT: Scale ensures it stays sharp while flattening */
+  transform: scaleY(0.6); /* Values less than 1 (like 0.5 or 0.6) squash it vertically */
+  
+  /* 4. CENTERING */
+  display: block;
+  margin: 40px auto; 
+  
+  /* Matches the color vibes of your site */
+  filter: brightness(0.9) contrast(1.1); 
+  opacity: 0.8;
+}
+

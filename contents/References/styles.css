@@ -1,0 +1,677 @@
+:root {
+  --bg-cream: #eaeaea;
+  --russet: #803939;
+  --russet-hover: #6a2e2e;
+  --text-dark: #0b0b0b;
+  --text-muted: rgba(11, 11, 11, 0.7);
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
+}
+
+/* --- REFERENCE PAGE SPECIFIC --- */
+
+.reference-wrapper {
+    flex: 1;
+    width: 100%;
+}
+
+.info-banner {
+    background: white;
+    padding: 30px;
+    border-radius: 24px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.banner-content i {
+    font-size: 2.5rem;
+    color: var(--russet);
+    opacity: 0.8;
+}
+
+.banner-content h3 {
+    font-family: var(--font-heading);
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.banner-content p {
+    margin: 5px 0 0 0;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.btn-outline {
+    margin-left: auto;
+    padding: 12px 24px;
+    border: 1.5px solid var(--russet);
+    color: var(--russet);
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: var(--russet);
+    color: white;
+}
+
+/* Card Styling to match Activity Cards */
+.team-member {
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.team-member img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.member-info {
+    padding: 25px;
+}
+
+.member-info .tags {
+    font-size: 0.7rem;
+    color: var(--russet);
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.member-info h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    margin: 10px 0;
+}
+
+.member-info p {
+    font-size: 0.85rem;
+    color: #777;
+    margin: 0;
+}
+/* This controls the layout of the entire grid */
+#team-grid {
+    display: grid;
+    /* This creates columns that are at least 250px wide, but fit as many as possible */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 30px; /* Space between the cards */
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* This styles the individual card container */
+.team-member {
+    background: white;
+    border-radius: 20px; /* Rounded corners from Image 2 */
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+}
+
+/* This forces the image to stay inside its specific card */
+.team-member img {
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Crops image to fit the box without stretching */
+    display: block;
+}
+
+.member-info {
+    padding: 20px;
+}
+
+.member-info h3 {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    color: #633333; /* Burgundy color from Image 2 */
+}
+
+/* Modal Background (Overlay) */
+.custom-modal {
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /* Semi-transparent black */
+    backdrop-filter: blur(5px); /* Soft blur effect */
+}
+
+/* Modal Box */
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 24px; /* Matches the cards */
+    width: 50%;
+    max-width: 600px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    color: #633333; /* Burgundy */
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.close-btn {
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close-btn:hover { color: #633333; }
+
+/* List Styles */
+#modal-links-list {
+    list-style: none;
+    padding: 0;
+}
+
+#modal-links-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid #f9f9f9;
+}
+
+#modal-links-list a {
+    color: #633333;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+#modal-links-list a:hover {
+    text-decoration: underline;
+}
+/* Container for the stacked links */
+.banner-actions {
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    gap: 0px;              /* Adds space between the buttons */
+    margin-left: auto;      /* Pushes the stack to the right side */
+    align-items: flex-end;  /* Aligns buttons to the right edge */
+}
+
+/* Ensure the banner-content doesn't squish the text */
+.banner-content {
+    display: flex;
+    align-items: center;
+    gap: 25 px;
+    width: 100%;
+}
+
+.text-content {
+    flex: 1; /* Allows text to take up remaining space */
+}
+
+/* Optional: Make buttons the same width for a cleaner look */
+.banner-actions .btn-outline {
+    min-width: 180px;
+    text-align: center;
+}
+
+/* Container for the Banner */
+.info-banner {
+    background: white;
+    border-radius: 28px; /* High rounding to match Image 2 */
+    padding: 40px;
+    margin: 0 auto 50px;
+    max-width: 900px; /* Limits width to help centering */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+/* Centering the content inside */
+.banner-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers everything horizontally */
+    text-align: center;   /* Centers text lines */
+}
+
+.banner-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.banner-header i {
+    font-size: 1.8rem;
+    color: var(--russet);
+}
+
+/* Removing the white space between descriptions and links */
+.text-content p {
+    margin-bottom: 5px; /* Tightens space between the two P tags */
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Stacking the buttons neatly below the text */
+.banner-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px; /* Space between text and buttons */
+}
+
+.btn-outline {
+    padding: 10px 20px;
+    border: 1.5px solid var(--russet);
+    border-radius: 12px; /* Rounded buttons like Image 2 */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background-color: var(--russet);
+    color: white !important;
+}
+
+/* Grid layout for images */
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+/* Container for the Banner */
+.info-banner {
+    background: white;
+    border-radius: 28px; /* High rounding to match Image 2 */
+    padding: 30px;
+    margin: 0 auto 50px;
+    max-width: 1000px; /* Wider to accommodate side-by-side links */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+/* Centering the content inside */
+.banner-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers items horizontally */
+    text-align: center;   
+}
+
+/* Tightens the text and removes white space */
+.text-content p {
+    margin: 2px 0; /* Minimal margin to get rid of white space between lines */
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* Side-by-side (Unstacked) Links */
+.banner-actions {
+    display: flex;
+    flex-direction: row; /* Unstacks the links */
+    justify-content: center;
+    gap: 500px;           /* Horizontal space between buttons */
+    margin-top: 20px;    /* Space between description and links */
+}
+
+.btn-outline {
+    padding: 10px 24px;
+    border: 1.5px solid var(--russet);
+    border-radius: 12px; /* Rounded corners like Image 2 */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap; /* Prevents text from wrapping inside button */
+    transition: all 0.3s ease;
+}
+
+/* NAVBAR */
+
+.navbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 1000;
+  padding: 30px 50px;
+  background: transparent !important;
+}
+
+.menu-pill {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: max-content;
+  margin: 0 auto;
+  padding: 6px 10px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-top-color: rgba(255, 255, 255, 0.7);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 10px 20px -5px rgba(0, 0, 0, 0.1),
+    inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.nav-box {
+  position: absolute;
+  top:6px;
+  left: 0;
+  height: calc(100% - 12px);
+  background: var(--russet);
+  border-radius: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 1;
+}
+
+.navbar .nav-link {
+  position: relative;
+  z-index: 2;
+  padding: 10px 24px !important;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-dark) !important;
+  border-radius: 12px;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  color: white !important;
+}
+
+/* Reset the pill container to ensure relative positioning works */
+.menu-pill {
+  position: relative;
+  overflow: visible; /* Allows the box to move freely */
+}
+
+.navbar .nav-link.active-link {
+  color: #fff !important;
+}
+
+.dropdown-toggle::after {
+  display: none !important;
+}
+
+/* =========================================================
+   2a. DROPDOWN — HOVER + CENTERED
+   ========================================================= */
+
+.navbar .dropdown:hover > .dropdown-menu,
+.navbar .dropdown .dropdown-menu:hover {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dropdown-menu {
+  left: 50%;
+  top: calc(100% + 10px);
+  transform: translate(-50%, -10px);
+  opacity: 0;
+  pointer-events: none;
+
+  display: block;
+  min-width: 220px;
+  padding: 12px;
+
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.dropdown-item {
+  text-align: center;
+  font-size: 0.85rem;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 500;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background: var(--russet);
+  color: #fff;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+}
+/*
+=======
+LOGO
+=======
+*/
+/* Logo glass container */
+.logo {
+  text-decoration: none;
+  position: absolute;
+  left: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  height: 44px;
+  padding: 6px 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-top-color: rgba(255, 255, 255, 0.7);
+
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.08),
+    0 10px 20px -5px rgba(0, 0, 0, 0.15),
+    inset 0 0 10px rgba(255, 255, 255, 0.12);
+
+  z-index: 1100;
+}
+
+/* Logo image sizing */
+.logo img {
+  height: 100%;
+  width: auto;
+  display: block;
+}
+.logo img {
+  transition: opacity 0.25s ease;
+}
+
+/* optional: text color transition too */
+.logo-text {
+  margin-left: 8px;
+  font-weight: 600;
+  transition: color 0.25s ease;
+}
+/* Ensure the Navbar is always on top */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    /* A very high z-index ensures it stays above cards, hero art, and grids */
+    z-index: 1050 !important; 
+    background: rgba(255, 255, 255, 0.9); /* Slight transparency for a modern look */
+
+}
+
+/* Ensure your Modal is even higher than the Navbar */
+/* Otherwise, you won't be able to click the modal close button */
+.custom-modal {
+    z-index: 1100; 
+}
+
+/* Add padding to the top of your body so the fixed navbar doesn't cover your title */
+body {
+    padding-top: 125px; /* Adjust this value based on your navbar's height */
+}
+.menu-pill {
+    z-index: 1051; /* Slightly higher than the navbar base */
+}
+
+/* 1. Make the sliding red box appear on hover */
+.navbar .nav-item:hover ~ .nav-box, /* If using sibling logic */
+.navbar .nav-link:hover {
+  background-color: var(--russet); /* The red color */
+  color: #fff !important;         /* Turn text white */
+  border-radius: 12px;
+}
+
+/* 2. If you are using the 'nav-box' for that sliding animation effect, 
+      you need this to make it visible: */
+.menu-pill:has(.nav-link:hover) .nav-box {
+  opacity: 1;
+}
+
+/* 3. Smooth transition for the link text */
+.navbar .nav-link {
+  transition: all 0.3s ease !important;
+}
+
+/* =========================================================
+   8. FOOTER
+   ========================================================= */
+
+.site-footer {
+  padding: 60px 0 30px;
+  background: var(--bg-cream);
+}
+
+.footer-brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* spacing between logo and text */
+}
+
+.footer-logo {
+  height: 36px; /* adjust size to match text */
+  width: auto;
+}
+
+.footer-brand {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000000;
+}
+
+.footer-line {
+  margin: 20px 0;
+  border: none;
+  border-top: 1.5px solid var(--text-dark);
+  opacity: 0.6;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.footer-legal a {
+  margin-left: 15px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-legal a:hover {
+  text-decoration: underline;
+}
+
+/* ==============================
+   FOOTER TOP (BRAND + NAV)
+   ============================== */
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 26px;
+}
+
+.footer-nav a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  text-decoration: none;
+  opacity: 0.65;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.footer-nav a:hover {
+  opacity: 1;
+  color: #6a2e2e;
+  transform: translateY(-2px);
+}

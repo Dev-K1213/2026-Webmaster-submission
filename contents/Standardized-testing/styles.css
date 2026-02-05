@@ -1,0 +1,358 @@
+/* =========================================================
+   1. THEME & GLOBAL
+   ========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700;900&display=swap');
+
+:root {
+    --russet: #803939;
+    --russet-hover: #6a2e2e;
+    --text-dark: #0b0b0b;
+    --bg-cream: #eaeaea;
+    --font-heading: "Playfair Display", serif;
+    --font-body: "Inter", sans-serif;
+}
+
+body {
+    margin: 0;
+    padding-top: 120px;
+    background-color: var(--bg-cream);
+    font-family: var(--font-body);
+    color: var(--text-dark);
+}
+
+/* =========================================================
+   2. NAVIGATION (PILL & GLASS DROPDOWN)
+   ========================================================= */
+.navbar {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 2000; 
+    padding: 20px 50px;
+    background: transparent !important;
+    pointer-events: none; 
+}
+
+.logo, .menu-pill {
+    pointer-events: auto; 
+}
+
+.logo {
+    text-decoration: none;
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 44px;
+    padding: 6px 14px;
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.logo img { height: 100%; width: auto; margin-right: 10px; }
+.logo-text { font-weight: 700; font-size: 0.9rem; color: var(--text-dark); }
+
+.menu-pill {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: max-content;
+    margin: 0 auto;
+    padding: 6px 10px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.nav-box {
+    position: absolute;
+    height: calc(100% - 12px);
+    background: var(--russet);
+    border-radius: 12px;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 1;
+}
+
+.navbar .nav-link {
+    position: relative;
+    z-index: 2;
+    padding: 10px 24px !important;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-dark) !important;
+    display: block;
+}
+
+.navbar .nav-link:hover, 
+.navbar .nav-link.active { 
+    color: #fff !important; 
+}
+
+/* --- THE DROPDOWN FIX --- */
+.dropdown-toggle::after {
+    display: none !important;
+}
+
+.dropdown-menu {
+    left: 50% !important;
+    top: 100%; /* Sits exactly against the menu-pill */
+    transform: translateX(-50%) translateY(0);
+    opacity: 0;
+    display: block; 
+    visibility: hidden;
+    min-width: 220px;
+    padding: 20px 10px 10px 10px; /* Top padding acts as the bridge */
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    margin: 0;
+}
+
+.nav-item.dropdown:hover > .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(5px);
+}
+
+/* The visible glass card */
+.dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: 12px; /* Visual gap */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 14px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    z-index: -1;
+}
+
+.dropdown-item {
+    text-align: center;
+    font-size: 0.85rem;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-weight: 500;
+    color: var(--text-dark);
+    transition: 0.2s;
+    position: relative;
+    z-index: 2;
+}
+
+.dropdown-item:hover {
+    background: var(--russet);
+    color: #fff !important;
+}
+
+/* =========================================================
+   3. CALENDAR UI
+   ========================================================= */
+.hero-header { 
+    text-align: center; 
+    padding: 40px 0; 
+    background: var(--russet); 
+    color: white; 
+    margin-bottom: 20px; 
+}
+
+.calendar-card {
+    background: white;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    margin-bottom: 30px;
+}
+
+.calendar-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.btn-cal {
+    background-color: var(--russet);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-cal:hover { background-color: var(--russet-hover); }
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 12px;
+}
+
+.day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f9f9f9;
+    border-radius: 14px;
+    font-weight: 500;
+}
+
+.day-name { font-weight: 700; color: var(--russet); text-align: center; font-size: 0.8rem; text-transform: uppercase; }
+
+.test-day {
+    background: var(--russet) !important;
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+/* =========================================================
+   4. TEST INFO BOXES
+   ========================================================= */
+.info-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.info-box {
+    background: white;
+    border-radius: 20px;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.info-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1) !important;
+}
+
+.info-box i {
+    font-size: 2.5rem;
+    color: var(--russet);
+}
+
+.info-box h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.info-box p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.btn-box {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 20px;
+    background: var(--russet);
+    color: white;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.info-box:hover .btn-box {
+    background: var(--russet-hover);
+}
+
+/* =========================================================
+   8. FOOTER
+   ========================================================= */
+
+.site-footer {
+  padding: 60px 0 30px;
+  background: var(--bg-cream);
+}
+
+.footer-brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* spacing between logo and text */
+}
+
+.footer-logo {
+  height: 36px; /* adjust size to match text */
+  width: auto;
+}
+
+.footer-brand {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000000;
+}
+
+.footer-line {
+  margin: 20px 0;
+  border: none;
+  border-top: 1.5px solid var(--text-dark);
+  opacity: 0.6;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.footer-legal a {
+  margin-left: 15px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-legal a:hover {
+  text-decoration: underline;
+}
+
+/* ==============================
+   FOOTER TOP (BRAND + NAV)
+   ============================== */
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 26px;
+}
+
+.footer-nav a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  text-decoration: none;
+  opacity: 0.65;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.footer-nav a:hover {
+  opacity: 1;
+  color: #6a2e2e;
+  transform: translateY(-2px);
+}

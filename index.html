@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <!-- LOGO -->
+      <a class="logo" href="#">
+        <img src="Photos/graduate-cap-black.png" alt="Logo" id="site-logo" />
+        <span class="logo-text">Aletheia</span>
+      </a>
+
+      <!-- GLASS PILL MENU -->
+      <div class="menu-pill">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button">
+                College
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="contents/College-Application/college-application.html"
+                    >College Applications</a
+                  >
+                </li>
+
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="contents/Scholarships/scholarships.html"
+                    >Scholarships</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button">
+                High School
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="contents/Standardized-testing/standardized-testing.html"
+                    >Standardized Testing</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="contents/Activities/Activities.html"
+                    >Activities</a
+                  >
+                </li>
+                <!-- <li>
+                  <a
+                    class="dropdown-item"
+                    href="contents/Research-opportunities/research-opportunities.html"
+                    >Research Opportunities</a
+                  >
+                </li> -->
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="contents/Internships/internships.html"
+                    >Internships</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item"><a class="nav-link" href="contents/Careers/careers.html">Careers</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="contents/Contact/contacts.html"
+                >Contribute</a
+              >
+            </li>
+            <li class="nav-item"><a class="nav-link" href="contents/References/index.html">Reference Page</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="hero-section" id="photo-section">
+      <div class="black-tint"></div>
+
+      <div class="hero-center-group">
+        <div class="container text-center">
+          <h1 class="display-5 mb-4 text-white fw-bold">
+            Find your next opportunity
+          </h1>
+        </div>
+      </div>
+
+      <div class="hero-bottom-group">
+        <div class="stretched-content">
+          <h2 class="hero-motto-minimal">
+            Unlock Your Potential. Own Your Future.
+          </h2>
+          <p class="hero-subtext-stretched">
+            Our platform provides a comprehensive and meticulously curated
+            database designed to empower ambitious high school students by
+            connecting them with prestigious internships, life-changing
+            scholarship opportunities, hands-on community activities, and
+            high-level academic research positions all across the globe.
+          </p>
+          <a href="contents/Activities/Activities.html" class="btn btn-primary btn-russet-theme"
+            >Start Exploring</a
+          >
+        </div>
+      </div>
+    </main>
+
+    <section class="timeline-section">
+      <h2 class="timeline-title">Your 4-Year Strategic Roadmap</h2>
+
+      <div class="timeline">
+        <div class="timeline-track"></div>
+        <div class="timeline-dot"></div>
+
+        <div class="timeline-item split-mode">
+          <div class="timeline-left-content">
+            <div class="card-media-box">
+              <img src="Photos/grade9.jpg" alt="Grade 9" />
+              <span class="badge-year">Grade 9</span>
+              <h3>Discovery & Habits</h3>
+              <button class="btn-tip" onclick="window.location.href='contents/Activities/Activities.html'">Find Clubs</button>
+            </div>
+          </div>
+          <div class="timeline-right-content">
+            <p class="description-text">
+              Build your academic foundation and explore interests that spark
+              curiosity. Focus on GPA consistency and join 2-3 clubs to find
+              your niche.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item split-mode swapped">
+          <div class="timeline-left-content">
+            <p class="description-text">
+              Narrow your focus to core activities and begin challenging
+              coursework. Start looking into summer programs or internships
+              related to your goals.
+            </p>
+          </div>
+          <div class="timeline-right-content">
+            <div class="card-media-box">
+              <img src="Photos/grade10.jpg" alt="Grade 10" />
+              <span class="badge-year">Grade 10</span>
+              <h3>Deep Dive & Focus</h3>
+              <button class="btn-tip" onclick="window.location.href='contents/Internships/internships.html'">Find Internships</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item split-mode">
+          <div class="timeline-left-content">
+            <div class="card-media-box">
+              <img src="Photos/grade11.jpg" alt="Grade 11" />
+              <span class="badge-year">Grade 11</span>
+              <h3>Leadership & Testing</h3>
+              <button class="btn-tip" onclick="window.location.href='contents/Standardized-testing/standardized-testing.html'">See Test Dates</button>
+            </div>
+          </div>
+          <div class="timeline-right-content">
+            <p class="description-text">
+              Secure leadership roles and finalize your standardized testing
+              plan. This is the year to demonstrate impact within your chosen
+              extracurriculars.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item split-mode swapped">
+          <div class="timeline-left-content">
+            <p class="description-text">
+              Finalize essays, submit applications, and secure financial aid.
+              Reflect on your four-year journey and craft a compelling
+              narrative.
+            </p>
+          </div>
+          <div class="timeline-right-content">
+            <div class="card-media-box">
+              <img src="Photos/grade12.jpg" alt="Grade 12" />
+              <span class="badge-year">Grade 12</span>
+              <h3>Applications & Launch</h3>
+              <button class="btn-tip" onclick="window.location.href='contents/College-Application/college-application.html'"">Find Colleges</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+
+   <section class="reviews-section">
+      <h2 class="review-section-title">Student Stories</h2>
+      <div class="carousel">
+        <div class="carousel-track">
+          <div class="review-card">
+            <div class="quote-mark">“</div>
+            <br />
+            <p>
+              "Finding a research mentor was my biggest hurdle. Through this
+              database, I secured a summer position at a top-tier lab."
+            </p>
+            <div class="reviewer-info">
+              <div class="avatar bg-navy">SC</div>
+              <h4>Sarah Chen</h4>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="quote-mark">“</div>
+            <br />
+            <p>
+              "The internship listings here aren't just the usual 'coffee-run'
+              jobs. I found a policy role that let me contribute to real-world
+              legislation."
+            </p>
+            <div class="reviewer-info">
+              <div class="avatar bg-sky">LR</div>
+              <h4>Leo Rodriguez</h4>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="quote-mark">“</div>
+            <br />
+            <p>
+              "This website helped me find networks for my interest in
+              basketball. I connected with coaches I never would have found
+              alone."
+            </p>
+            <div class="reviewer-info">
+              <div class="avatar bg-brown">MJ</div>
+              <h4>Michael Jordan</h4>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="quote-mark">“</div>
+            <br />
+            <p>
+              "I used the Activities section to find a project combining my love
+              for coding with teaching. It was the highlight of my college
+              apps."
+            </p>
+            <div class="reviewer-info">
+              <div class="avatar bg-navy">MP</div>
+              <h4>Maya Patel</h4>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="quote-mark">“</div>
+            <br />
+            <p>
+              "The scholarship database is a game-changer. I found niche awards
+              that ended up covering my entire freshman year tuition."
+            </p>
+            <div class="reviewer-info">
+              <div class="avatar bg-sky">JS</div>
+              <h4>Jordan Smith</h4>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="quote-mark">“</div>
+            <br />
+            <p>
+              "Finding a research mentor was my biggest hurdle. Through this
+              database, I secured a summer position at a top-tier lab."
+            </p>
+            <div class="reviewer-info">
+              <div class="avatar bg-navy">SC</div>
+              <h4>Sarah Chen</h4>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="quote-mark">“</div>
+            <br />
+            <p>
+              "The internship listings here aren't just the usual 'coffee-run'
+              jobs. I found a policy role that let me contribute to real-world
+              legislation."
+            </p>
+            <div class="reviewer-info">
+              <div class="avatar bg-sky">LR</div>
+              <h4>Leo Rodriguez</h4>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="quote-mark">“</div>
+            <br />
+            <p>
+              "This website helped me find networks for my interest in
+              basketball. I connected with coaches I never would have found
+              alone."
+            </p>
+            <div class="reviewer-info">
+              <div class="avatar bg-brown">MJ</div>
+              <h4>Michael Jordan</h4>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="quote-mark">“</div>
+            <br />
+            <p>
+              "I used the Activities section to find a project combining my love
+              for coding with teaching. It was the highlight of my college
+              apps."
+            </p>
+            <div class="reviewer-info">
+              <div class="avatar bg-navy">MP</div>
+              <h4>Maya Patel</h4>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="quote-mark">“</div>
+            <br />
+            <p>
+              "The scholarship database is a game-changer. I found niche awards
+              that ended up covering my entire freshman year tuition."
+            </p>
+            <div class="reviewer-info">
+              <div class="avatar bg-sky">JS</div>
+              <h4>Jordan Smith</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand-wrapper">
+            <img
+              src="Photos/graduate-cap-black.png"
+              alt="Logo Icon"
+              class="footer-logo"
+            />
+            <div class="footer-brand">Aletheia</div>
+          </div>
+
+          <div class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="contents/Careers/careers.html">Careers</a>
+            <a href="contents/Contact/contacts.html">Contribute</a>
+            <a href="contents/References/index.html"> References</a>
+          </div>
+        </div>
+
+        <hr class="footer-line" />
+
+        <div class="footer-bottom">
+          <div class="copyright">
+            ©2026 Aletheia — All Rights Reserved.
+          </div>
+          <div class="footer-legal">
+            <a href="contents/Terms-conditions/terms_conditions.html">Terms and Conditions</a>
+            <span style="margin-left: 10px; opacity: 0.3">|</span>
+            <a href="contents/Privacy-Policy/privacy-policy.html">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="carousel.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="index.js"></script>
+    <script src="background.js"></script>
+    <script src="timeline.js"></script>
+    <script src="logo-transition.js"></script>
+  </body>
+</html>

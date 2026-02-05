@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>High School Internships</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <a class="logo" href="../../index.html">
+        <img src="../../Photos/graduate-cap-black.png" alt="Logo" />
+        <span class="logo-text">Aletheia</span>
+      </a>
+
+      <div class="menu-pill">
+        <div class="nav-box" id="nav-box"></div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                >College</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../College-Application/college-application.html"
+                    >College Applications</a
+                  >
+                </li>
+
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../Scholarships/scholarships.html"
+                    >Scholarships</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle active"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                >High School</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../Standardized-testing/standardized-testing.html"
+                    >Standardized Testing</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../Activities/Activities.html"
+                    >Activities</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../Internships/internships.html"
+                    >Internships</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="../Careers/careers.html">Careers</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="../Contact/contacts.html">Contribute</a>
+            </li>
+            
+            <li class="nav-item"><a class="nav-link" href="../References/index.html">Reference Page</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero-section">
+      <div class="mural-art"></div>
+      <div class="container">
+        <h1 class="main-title">High School Internships</h1>
+        <p class="subtitle">Real internship opportunities you can apply to.</p>
+        <div class="search-pill">
+          <i class="fas fa-search" style="color: #999; margin-left: 5px"></i>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search 'NASA' or 'policy'..."
+          />
+          <button id="clearFilters">Clear</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="app-container">
+      <aside class="sidebar">
+        <div class="filter-section">
+          <h3>Fields of Interest</h3>
+          <div class="filter-item">
+            <input type="checkbox" id="stem" value="STEM" class="filter" />
+            <label for="stem">Sci‑Tech & Math</label>
+          </div>
+          <div class="filter-item">
+            <input
+              type="checkbox"
+              id="research"
+              value="Research"
+              class="filter"
+            />
+            <label for="research">Academic Research</label>
+          </div>
+          <div class="filter-item">
+            <input
+              type="checkbox"
+              id="polisci"
+              value="Political Science"
+              class="filter"
+            />
+            <label for="polisci">Poli‑Sci & Law</label>
+          </div>
+          <div class="filter-item">
+            <input type="checkbox" id="biz" value="Business" class="filter" />
+            <label for="biz">Business & Econ</label>
+          </div>
+          <div class="filter-item">
+            <input
+              type="checkbox"
+              id="writing"
+              value="Humanities"
+              class="filter"
+            />
+            <label for="writing">Humanities & Writing</label>
+          </div>
+          <div class="filter-item">
+            <input type="checkbox" id="med" value="Medical" class="filter" />
+            <label for="med">Medicine & Bio</label>
+          </div>
+          <div class="filter-item">
+            <input
+              type="checkbox"
+              id="arts"
+              value="Arts Performance"
+              class="filter"
+            />
+            <label for="arts">Fine Arts & Culture</label>
+          </div>
+          <h3>Compensation</h3>
+          <div class="filter-item">
+            <input type="checkbox" id="paid" value="Paid" class="filter" />
+            <label for="paid">Paid</label>
+          </div>
+          <div class="filter-item">
+            <input
+              type="checkbox"
+              id="stipend"
+              value="Stipend"
+              class="filter"
+            />
+            <label for="stipend">Stipend</label>
+          </div>
+          <div class="filter-item">
+            <input type="checkbox" id="unpaid" value="Unpaid" class="filter" />
+            <label for="unpaid">Unpaid</label>
+          </div>
+        </div>
+      </aside>
+
+      <main class="results-grid" id="results">
+        <!-- NASA High School Internship -->
+        <div class="result-card" data-tags="STEM,Paid">
+          <h3>NASA High School Internship Program</h3>
+          <p>
+            Paid internships working on real STEM projects with NASA mentors.
+            Interns get hands‑on experience in science and engineering research
+            at NASA centers. :contentReference[oaicite:1]{index=1}
+          </p>
+          <p><strong>Focus:</strong> STEM, Engineering, Space Science</p>
+          <p><strong>Compensation:</strong> Paid (varies by location)</p>
+          <a href="https://stemgateway.nasa.gov" target="_blank">Learn More</a>
+        </div>
+
+        <!-- NIH High School SIP -->
+        <div class="result-card" data-tags="Research,Medical,Unpaid">
+          <h3>NIH High School Summer Internship Program (HS‑SIP)</h3>
+          <p>
+            Unpaid biomedical research internships at the National Institutes of
+            Health. Interns assist with real research under scientific guidance.
+            :contentReference[oaicite:2]{index=2}
+          </p>
+          <p><strong>Focus:</strong> Biology, Public Health, Research</p>
+          <p><strong>Compensation:</strong> Unpaid (academic experience)</p>
+          <a href="https://www.training.nih.gov/programs/hs-sip" target="_blank"
+            >Learn More</a
+          >
+        </div>
+
+        <!-- Bank of America Student Leaders -->
+        <div class="result-card" data-tags="Business,Paid">
+          <h3>Bank of America Student Leaders Program</h3>
+          <p>
+            Eight‑week paid internship with local nonprofits plus leadership
+            training and national summit in Washington, D.C.
+            :contentReference[oaicite:3]{index=3}
+          </p>
+          <p><strong>Focus:</strong> Business Leadership, Civic Engagement</p>
+          <p><strong>Compensation:</strong> Paid</p>
+          <a
+            href="https://about.bankofamerica.com/en/making-an-impact/student-leaders"
+            target="_blank"
+            >Learn More</a
+          >
+        </div>
+
+        <!-- Smithsonian High School Internships -->
+        <div class="result-card" data-tags="Arts Performance,Stipend">
+          <h3>Smithsonian High School Internship Program</h3>
+          <p>
+            Internships across Smithsonian museums and research units with
+            stipend opportunities in science, culture, and education.
+            :contentReference[oaicite:5]{index=5}
+          </p>
+          <p><strong>Focus:</strong> Museums, Research, Science, Culture</p>
+          <p><strong>Compensation:</strong> Stipend available</p>
+          <a href="https://internships.si.edu" target="_blank">Learn More</a>
+        </div>
+
+        <!-- Library of Congress Internships -->
+        <div class="result-card" data-tags="Humanities & Writing,Unpaid">
+          <h3>Library of Congress High School Internships</h3>
+          <p>
+            Unpaid internships focused on research, exhibitions, and youth
+            engagement at the nation’s library.
+            :contentReference[oaicite:6]{index=6}
+          </p>
+          <p><strong>Focus:</strong> Writing, Curatorial, Public Programming</p>
+          <p><strong>Compensation:</strong> Unpaid</p>
+          <a href="https://www.loc.gov/families" target="_blank">Learn More</a>
+        </div>
+      </main>
+    </div>
+
+    <!-- Institute for Systems Biology Internships -->
+        <div class="result-card" data-tags="Humanities & Writing,Unpaid">
+          <h3>Institute for Systems Biology l Internships</h3>
+          <p>
+            Unpaid internships focused on research, exhibitions, and youth
+            engagement at the nation’s library.
+            :contentReference[oaicite:6]{index=6}
+          </p>
+          <p><strong>Focus:</strong> Writing, Curatorial, Public Programming</p>
+          <p><strong>Compensation:</strong> Unpaid</p>
+          <a href="https://www.loc.gov/families" target="_blank">Learn More</a>
+        </div>
+      </main>
+    </div>
+
+    <!-- test -->
+     <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand-wrapper">
+            <img
+              src="../../Photos/graduate-cap-black.png"
+              alt="Logo Icon"
+              class="footer-logo"
+            />
+            <div class="footer-brand">Aletheia</div>
+          </div>
+
+          <div class="footer-nav">
+            <a href="../../index.html">Home</a>
+            <a href="../Careers/careers.html">Careers</a>
+            <a href="../Contact/contacts.html">Contribute</a>
+            <a href="../References/index.html"> References</a>
+          </div>
+        </div>
+
+        <hr class="footer-line" />
+
+        <div class="footer-bottom">
+          <div class="copyright">
+            ©2026 Aletheia — All Rights Reserved.
+          </div>
+          <div class="footer-legal">
+            <a href="../Terms-conditions/terms_conditions.html">Terms and Conditions</a>
+            <span style="margin-left: 10px; opacity: 0.3">|</span>
+            <a href="../Privacy-Policy/privacy-policy.html">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

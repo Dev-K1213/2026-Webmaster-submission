@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>College Test Calendar | THE WEBSITE</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <a class="logo" href="../../index.html">
+            <img src="../../Photos/graduate-cap-black.png" alt="Logo" />
+            <span class="logo-text">Aletheia</span>
+        </a>
+
+        <div class="menu-pill">
+            <div id="nav-box" class="nav-box"></div>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="../../index.html">Home</a></li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">College</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../College-Application/college-application.html">College Applications</a></li>
+                            <li><a class="dropdown-item" href="../Scholarships/scholarships.html">Scholarships</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">High School</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../Standardized-testing/standardized-testing.html">Standardized Testing</a></li>
+                            <li><a class="dropdown-item" href="../Activities/Activities.html">Activities</a></li>
+                            <li><a class="dropdown-item" href="../Internships/internships.html">Internships</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="../Careers/careers.html">Careers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../Contact/contacts.html">Contribute</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../References/index.html">Reference Page</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-header">
+        <h1>College Test Calendar</h1>
+        <p>Interactive schedule for SAT, ACT, and PSAT dates.</p>
+    </header>
+
+    <main class="container main-content">
+        <section class="calendar-card">
+            <div class="calendar-controls">
+                <button id="prevBtn" class="btn-cal">Prev</button>
+                <h2 id="monthYear">February 2026</h2>
+                <button id="nextBtn" class="btn-cal">Next</button>
+            </div>
+            <div id="calendar" class="calendar-grid"></div>
+        </section>
+
+        <section class="test-details shadow-sm mt-4">
+            <div class="card-body p-4">
+                <h4 class="details-title">Test Details</h4>
+                <div id="detailsContent">
+                    <p>Select a highlighted date to see test information.</p>
+                </div>
+            </div>
+        </section>
+        <section class="test-info-boxes row mt-5 g-4">
+        <div class="col-md-4">
+            <a href="https://www.act.org" target="_blank" class="info-card-link">
+                <div class="info-box p-4 shadow-sm text-center">
+                    <i class="fas fa-file-alt mb-3"></i>
+                    <h3>ACT</h3>
+                    <p>A curriculum-based achievement exam that measures English, Math, Reading, and Science skills.</p>
+                    <span class="btn-box">Apply Now</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="https://www.collegeboard.org/sat" target="_blank" class="info-card-link">
+                <div class="info-box p-4 shadow-sm text-center">
+                    <i class="fas fa-pen-nib mb-3"></i>
+                    <h3>SAT</h3>
+                    <p>An entrance exam used by most colleges to make admissions decisions, focusing on Reading, Writing, and Math.</p>
+                    <span class="btn-box">Register Here</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="https://satsuite.collegeboard.org/psat-nmsqt" target="_blank" class="info-card-link">
+                <div class="info-box p-4 shadow-sm text-center">
+                    <i class="fas fa-graduation-cap mb-3"></i>
+                    <h3>PSAT</h3>
+                    <p>A "practice" version of the SAT that also serves as the qualifying test for National Merit Scholarships.</p>
+                    <span class="btn-box">Learn More</span>
+                </div>
+            </a>
+        </div>
+    </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand-wrapper">
+            <img
+              src="../../Photos/graduate-cap-black.png"
+              alt="Logo Icon"
+              class="footer-logo"
+            />
+            <div class="footer-brand">Aletheia</div>
+          </div>
+
+          
+          <div class="footer-nav">
+            <a href="../../index.html">Home</a>
+            <a href="../Careers/careers.html">Careers</a>
+            <a href="../Contact/contacts.html">Contribute</a>
+            <a href="../References/index.html"> References</a>
+          </div>
+        </div>
+
+        <hr class="footer-line" />
+
+        <div class="footer-bottom">
+          <div class="copyright">
+            ©2026 Aletheia — All Rights Reserved.
+          </div>
+          <div class="footer-legal">
+            <a href="../Terms-conditions/terms_conditions.html">Terms and Conditions</a>
+            <span style="margin-left: 10px; opacity: 0.3">|</span>
+            <a href="../Privacy-Policy/privacy-policy.html">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
